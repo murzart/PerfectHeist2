@@ -21,6 +21,13 @@ Running multiple instances (iterate PORT, QUERYPORT and RCONPORT):<br/>
 $ docker run -d --net=host -v /home/steam/PerfectHeist2Server-dedicated/ -e PORT=7787 -e PORT_STEAM_BROWSER=27027 --name=ph2-dedicated ghcr.io/murzart/perfectheist2
 ```
 
+## Hosting a simple game server with custom name and password
+Running on the *host* interface (recommended):<br/>
+```console
+$ docker run -d --net=host -e SERVER_NAME="MyCustomServerName" -e PASSWORD_ACTIVE=true -e PASSWORD="MySecurePassword" -e MAP="NewYorkCity" -v /home/steam/PerfectHeist2Server-dedicated/ --name=ph2-dedicated ghcr.io/murzart/perfectheist2
+```
+
+
 ### docker-compose.yml example
 ```dockerfile
 version: '3.9'
