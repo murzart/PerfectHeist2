@@ -1,4 +1,4 @@
-# PerfectHeist2
+# PerfectHeist2 Dedicated Server Docker Image
 
 
 # How to use this image
