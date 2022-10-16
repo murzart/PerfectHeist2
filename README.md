@@ -16,7 +16,7 @@ $ chmod 777 $(pwd)/ph2-data # Makes sure the directory is writeable by the unpri
 $ docker run -d --net=host -v $(pwd)/ph2-data:/home/steam/PerfectHeist2Server-dedicated/ --name=ph2-dedicated ghcr.io/murzart/perfectheist2
 ```
 
-Running multiple instances (iterate PORT, QUERYPORT and RCONPORT):<br/>
+Running multiple instances (iterate PORT and PORT_STEAM_BROWSER):<br/>
 ```console
 $ docker run -d --net=host -v /home/steam/PerfectHeist2Server-dedicated/ -e PORT=7787 -e PORT_STEAM_BROWSER=27027 --name=ph2-dedicated ghcr.io/murzart/perfectheist2
 ```
