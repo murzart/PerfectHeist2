@@ -39,13 +39,6 @@ Running on the *host* interface (recommended):<br/>
 $ docker run -d --net=host -e SERVER_NAME="MyCustomServerName" -e PASSWORD_ACTIVE=true -e PASSWORD="MySecurePassword" -e MAP="NewYorkCity" -v /home/steam/PerfectHeist2Server-dedicated/ --name=ph2-dedicated ghcr.io/murzart/perfectheist2
 ```
 
-
-## Hosting a simple game server with a custom map
-Running on the *host* interface (recommended):<br/>
-```console
-$ docker run -d --net=host -e SERVER_NAME="MyCustomServerName" -e PASSWORD_ACTIVE=true -e PASSWORD="MySecurePassword" -e MAP="CustomMap" -e WORKSHOP_MAP_ID="2802827661" -v /home/steam/PerfectHeist2Server-dedicated/ --name=ph2-dedicated ghcr.io/murzart/perfectheist2
-```
-
 ### docker-compose.yml example
 ```dockerfile
 version: '3.9'
@@ -61,6 +54,12 @@ services:
     environment:
       - PORT=7787
       - PORT_STEAM_BROWSER=27027
+```
+
+## Hosting a simple game server with a custom map
+Running on the *host* interface (recommended):<br/>
+```console
+$ docker run -d --net=host -e SERVER_NAME="MyCustomServerName" -e PASSWORD_ACTIVE=true -e PASSWORD="MySecurePassword" -e MAP="CustomMap" -e WORKSHOP_MAP_ID="2802827661" -v /home/steam/PerfectHeist2Server-dedicated/ --name=ph2-dedicated ghcr.io/murzart/perfectheist2
 ```
 
 # Configuration
