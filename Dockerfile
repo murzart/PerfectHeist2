@@ -6,6 +6,7 @@ FROM cm2network/steamcmd:root
 ENV STEAMAPPID 1964150
 ENV STEAMAPP PerfectHeist2Server
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
+ENV WORKSHOPID 1521580
 
 ENV SERVER_NAME="MyServer" \
     BOTS=2 \
@@ -35,7 +36,8 @@ ENV SERVER_NAME="MyServer" \
     SERVER_OWNER_ID= \
     MAX_PLAYERS=16 \
     PICKTIME=20 \
-    SPECTATORS=false
+    SPECTATORS=false \
+    WORKSHOP_MAP_ID=
 
 USER ${USER}
 
@@ -47,4 +49,3 @@ CMD ["bash", "run.sh"]
 
 EXPOSE 7777/udp \
     27017/udp
-

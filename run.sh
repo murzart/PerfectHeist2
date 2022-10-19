@@ -5,6 +5,10 @@ bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "${STEAMAPPDIR}" \
 				+app_update "${STEAMAPPID}" \
 				+quit
 
+if [[ ! -z "${WORKSHOP_MAP_ID}" ]]; then
+    echo "> Install mod '${WORKSHOP_MAP_ID}'"
+    "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "${STEAMAPPDIR}" +login anonymous +workshop_download_item "${WORKSHOPID}" "${WORKSHOP_MAP_ID}" +quit
+fi
 
 bash "${STEAMAPPDIR}/PerfectHeist2Server.sh" \
 	${MAP} \
@@ -31,8 +35,9 @@ bash "${STEAMAPPDIR}/PerfectHeist2Server.sh" \
 	-ini:Game:[Advanced]:sprintingStamina=${SPRINTING_STAMINA} \
 	-ini:Game:[Advanced]:noSprinting=${NO_SPRINTING} \
 	-ini:Game:[Advanced]:NoTeamDamage=${NO_TEAM_DAMAGE} \
-	-ini:Game:[Advanced]:ServerOwnerID=${SERVER_OWNER_ID} \
-	-ini:Game:[Advanced]:MaxPlayers=${MAX_PLAYERS} \
-	-ini:Game:[Advanced]:picktime=${PICKTIME} \
-	-ini:Game:[Advanced]:spectators=${SPECTATORS}
-
+    -ini:Game:[Advanced]:ServerOwnerID=${SERVER_OWNER_ID} \
+    -ini:Game:[Advanced]:MaxPlayers=${MAX_PLAYERS} \
+    -ini:Game:[Advanced]:picktime=${PICKTIME} \
+    -ini:Game:[Advanced]:spectators=${SPECTATORS} \
+    -ini:Game:[Advanced]:WorkshopFolderFullPath=${STEAMAPPDIR}/steamapps/workshop/content/${WORKSHOPID}/${WORKSHOP_MAP_ID} \
+    -ini:Game:[Advanced]:WorkshopMapID=${WORKSHOP_MAP_ID}
